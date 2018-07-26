@@ -181,8 +181,8 @@ android {
       abortOnError false;
     }
 
-    compileSdkVersion 24
-    buildToolsVersion '27.0.3'
+    compileSdkVersion cdvCompileSdkVersion
+    buildToolsVersion cdvBuildToolsVersion
 
     if (Boolean.valueOf(cdvBuildMultipleApks)) {
         flavorDimensions "default"
@@ -252,10 +252,10 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: '*.jar', dir: 'libs')
+    implementation fileTree(dir: 'libs', include: '*.jar')
     // SUB-PROJECT DEPENDENCIES START
-    implementation project(path: 'CordovaLib')
-    compile 'com.squareup.okhttp3:okhttp:3.9.1'
+    implementation(project(path: "CordovaLib"))
+    compile "com.squareup.okhttp3:okhttp:3.9.1"
     // SUB-PROJECT DEPENDENCIES END
 }
 
